@@ -1,0 +1,35 @@
+/*Unique Text*/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+h1{
+    color: #f08484;
+}
+
+body{
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.frosted-paragraph {
+  background: #f87171; /* Dark Red tint */
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 10px solid rgba(211, 211, 211 0.3);
+  color: rgb(243, 239, 239);
+  box-shadow: 0 0 12px rgba(132, 3, 3, 0.6),
+              0 0 24px rgba(233, 98, 98, 0.4); /* Unique glow effect */
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0;
+  width: 550px;
+  height: auto;
+}
+
+.frosted-paragraph:hover {
+  box-shadow: 0 0 18px #f70707,
+              0 0 36px #b91c1c;
+  transform: scale(1.02);
+}
