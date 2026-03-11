@@ -6,7 +6,23 @@ h1{
 }
 
 body{
-    text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77, #667586, #a5a5a5);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .center{
@@ -32,4 +48,24 @@ body{
   box-shadow: 0 0 18px #f70707,
               0 0 36px #b91c1c;
   transform: scale(1.02);
+}
+
+.image-blend {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Top image fades into bottom image */
+.img2 {
+  mask-image: linear-gradient(to right, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%);
 }
