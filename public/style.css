@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
 h1{
-    color: #f08484;
+    color: #facc15;
 }
 
 body{
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77, #667586, #a5a5a5);
+  background: linear-gradient(135deg, #0f172a, #1e293b, #ef4444, #3b82f6, #a5a5a5);
   background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 20s ease infinite;
   display: flex;
   flex-direction: column;
   color: white;
@@ -18,11 +18,11 @@ body{
 }
 
 @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 50% 50%; }
-    50% { background-position: 100% 50%; }
-    75% { background-position: 50% 50%; }
-    100% { background-position: 0% 50%; }
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .center{
@@ -45,27 +45,117 @@ body{
 }
 
 .frosted-paragraph:hover {
-  box-shadow: 0 0 18px #f70707,
-              0 0 36px #b91c1c;
+  box-shadow: 0 0 18px #facc15,
+              0 0 36px #ffde59;
   transform: scale(1.02);
 }
 
-.image-blend {
+/* CENTERING */
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* BACKGROUND IMAGES */
+.background {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  animation: backgroundShift 15s infinite;
+}
+
+@keyframes backgroundShift {
+  0% {
+    background-image: url("photo/JJK_Home.jpg");
+  }
+
+  33% {
+    background-image: url("photo/DBZ_Home.jpg");
+  }
+
+  66% {
+    background-image: url("photo/OnePiece_Home.jpg");
+  }
+
+  100% {
+    background-image: url("photo/BlueLock_Home.jpg");
+  }
+}
+
+.slideshow {
   position: relative;
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
-.img {
+.slide {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fade 18s infinite;
+  z-index: -1;
 }
 
-/* Top image fades into bottom image */
-.img2 {
-  mask-image: linear-gradient(to right, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 40%, transparent 100%);
+.img1 { 
+  background-image: url("photo/JJK_Home.jpg"); 
+  animation-delay: 0s;
+}
+
+.img2 { 
+  background-image: url("photo/DBZ_Home.jpg"); 
+  animation-delay: 6s;
+}
+
+.img3 { 
+  background-image: url("photo/OnePiece_Home.jpg"); 
+  animation-delay: 12s;
+}
+
+.img4 { 
+  background-image: url("photo/BlueLock_Home.jpg"); 
+  animation-delay: 18s;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* FORM GRID */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+}
+
+/*BUTTON ALT*/
+
+button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #3b82f6;
+  box-shadow: 0 0 18px #6793db,
+              0 0 36px #0649b5;
+  transform: scale(1.02);
 }

@@ -5,119 +5,121 @@
 
 <body>
   <h1 class = "center">What Anime Genre Matches You?</h1>
+  <div class = "background">
+  <div class="slideshow">
+    <div class="slide img1"></div>
+    <div class="slide img2"></div>
+    <div class="slide img3"></div>
+    <div class="slide img4"></div>
+  
 
-  <div class="image-blend">
-    <img src="photo/BlueLock_Home.jpg" class="img img1">
-    <img src="photo/JJK_Home.jpg" class="img img2">
-  </div> 
+    <section class="quiz-section">
 
-  <section class="quiz-section">
+      <form class = "form-grid" id="anime-quiz-form">
+        
+        <div class="question-block-1 frosted-paragraph">
+          <h2 class = "center">What kind of story sounds most interesting to you?</h2>
+          <label>
+            <input type="radio" name="story" value="action" required>
+            Fast fights, big battles, and intense moments
+          </label>
+          <label>
+            <input type="radio" name="story" value="adventure">
+            Exploring new worlds and going on epic journeys
+          </label>
+          <label>
+            <input type="radio" name="story" value="horror">
+            Dark secrets, fear, and creepy twists
+          </label>
+          <label>
+            <input type="radio" name="story" value="drama">
+            Deep emotions, relationships, and personal struggles
+          </label>
+        </div>
 
-    <form id="anime-quiz-form">
-      
-      <section class="question-block-1 frosted-paragraph">
-        <h2 class = "center">What kind of story sounds most interesting to you?</h2>
-        <label>
-          <input type="radio" name="story" value="action" required>
-          Fast fights, big battles, and intense moments
-        </label>
-        <label>
-          <input type="radio" name="story" value="adventure">
-          Exploring new worlds and going on epic journeys
-        </label>
-        <label>
-          <input type="radio" name="story" value="horror">
-          Dark secrets, fear, and creepy twists
-        </label>
-        <label>
-          <input type="radio" name="story" value="drama">
-          Deep emotions, relationships, and personal struggles
-        </label>
-      </section>
+        <div class="question-block-2 frosted-paragraph">
+          <h2 class = "center">What kind of main character do you like most?</h2>
+          <label>
+            <input type="radio" name="character" value="action" required>
+            Strong, fearless, and ready to fight
+          </label>
+          <label>
+            <input type="radio" name="character" value="adventure">
+            Curious, bold, and always chasing the unknown
+          </label>
+          <label>
+            <input type="radio" name="character" value="horror">
+            Mysterious, troubled, or trapped in danger
+          </label>
+          <label>
+            <input type="radio" name="character" value="drama">
+            Realistic, emotional, and complex
+          </label>
+        </div>
 
-      <section class="question-block-2 frosted-paragraph">
-        <h2 class = "center">What kind of main character do you like most?</h2>
-        <label>
-          <input type="radio" name="character" value="action" required>
-          Strong, fearless, and ready to fight
-        </label>
-        <label>
-          <input type="radio" name="character" value="adventure">
-          Curious, bold, and always chasing the unknown
-        </label>
-        <label>
-          <input type="radio" name="character" value="horror">
-          Mysterious, troubled, or trapped in danger
-        </label>
-        <label>
-          <input type="radio" name="character" value="drama">
-          Realistic, emotional, and complex
-        </label>
-      </section>
+        <div class="question-block-3 frosted-paragraph">
+          <h2 class = "center">What kind of setting do you prefer?</h2>
+          <label>
+            <input type="radio" name="setting" value="action" required>
+            A world full of conflict and powerful enemies
+          </label>
+          <label>
+            <input type="radio" name="setting" value="adventure">
+            Fantasy lands, hidden places, or exciting destinations
+          </label>
+          <label>
+            <input type="radio" name="setting" value="horror">
+            Abandoned towns, haunted spaces, or unsettling places
+          </label>
+          <label>
+            <input type="radio" name="setting" value="drama">
+            Schools, homes, or everyday life with emotional tension
+          </label>
+        </div>
 
-      <section class="question-block-3 frosted-paragraph">
-        <h2 class = "center">What kind of setting do you prefer?</h2>
-        <label>
-          <input type="radio" name="setting" value="action" required>
-          A world full of conflict and powerful enemies
-        </label>
-        <label>
-          <input type="radio" name="setting" value="adventure">
-          Fantasy lands, hidden places, or exciting destinations
-        </label>
-        <label>
-          <input type="radio" name="setting" value="horror">
-          Abandoned towns, haunted spaces, or unsettling places
-        </label>
-        <label>
-          <input type="radio" name="setting" value="drama">
-          Schools, homes, or everyday life with emotional tension
-        </label>
-      </section>
+        <div class="question-block-4 frosted-paragraph">
+          <h2 class = "center">Which mood appeals to you most?</h2>
+          <label>
+            <input type="radio" name="mood" value="action" required>
+            Excitement and adrenaline
+          </label>
+          <label>
+            <input type="radio" name="mood" value="adventure">
+            Wonder and discovery
+          </label>
+          <label>
+            <input type="radio" name="mood" value="horror">
+            Suspense and fear
+          </label>
+          <label>
+            <input type="radio" name="mood" value="drama">
+            Emotion and reflection
+          </label>
+        </div>
 
-      <section class="question-block-4 frosted-paragraph">
-        <h2 class = "center">Which mood appeals to you most?</h2>
-        <label>
-          <input type="radio" name="mood" value="action" required>
-          Excitement and adrenaline
-        </label>
-        <label>
-          <input type="radio" name="mood" value="adventure">
-          Wonder and discovery
-        </label>
-        <label>
-          <input type="radio" name="mood" value="horror">
-          Suspense and fear
-        </label>
-        <label>
-          <input type="radio" name="mood" value="drama">
-          Emotion and reflection
-        </label>
-      </section>
-
-      <section class="question-block-5 frosted-paragraph">
-        <h2 class = "center">What would make you keep watching?</h2>
-        <label>
-          <input type="radio" name="hook" value="action" required>
-          Crazy fight scenes and power-ups
-        </label>
-        <label>
-          <input type="radio" name="hook" value="adventure">
-          A journey with surprises and world-building
-        </label>
-        <label>
-          <input type="radio" name="hook" value="horror">
-          Unpredictable scares and disturbing mysteries
-        </label>
-        <label>
-          <input type="radio" name="hook" value="drama">
-          Strong character development and emotional depth
-        </label>
-      </section>
-
+        <div class="question-block-5 frosted-paragraph">
+          <h2 class = "center">What would make you keep watching?</h2>
+          <label>
+            <input type="radio" name="hook" value="action" required>
+            Crazy fight scenes and power-ups
+          </label>
+          <label>
+            <input type="radio" name="hook" value="adventure">
+            A journey with surprises and world-building
+          </label>
+          <label>
+            <input type="radio" name="hook" value="horror">
+            Unpredictable scares and disturbing mysteries
+          </label>
+          <label>
+            <input type="radio" name="hook" value="drama">
+            Strong character development and emotional depth
+          </label>
+        </div>
+      </form>
       <button type="submit">Get My Genre</button>
-    </form>
-
-    <div id="result"></div>
-  </section>
+      <div id="result"></div>
+    </section>
+  </div>
+  </div>
 </body>
