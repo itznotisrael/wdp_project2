@@ -71,16 +71,20 @@ img {
     background-image: url("photo/JJK_Home.jpg");
   }
 
-  33% {
+  25% {
     background-image: url("photo/DBZ_Home.jpg");
   }
 
-  66% {
+  50% {
     background-image: url("photo/OnePiece_Home.jpg");
   }
 
-  100% {
+  75% {
     background-image: url("photo/BlueLock_Home.jpg");
+  }
+
+  100% {
+    background-image: url("photo/JJK_Home.jpg");
   }
 }
 
@@ -98,7 +102,7 @@ img {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: fade 18s infinite;
+  animation: fade 20s infinite;
   z-index: -1;
 }
 
@@ -120,6 +124,11 @@ img {
 .img4 { 
   background-image: url("photo/BlueLock_Home.jpg"); 
   animation-delay: 18s;
+}
+
+.img5 { 
+  background-image: url("photo/JJK_Home.jpg"); 
+  animation-delay: 20s;
 }
 
 @keyframes fade {
