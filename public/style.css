@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
 h1{
-    color: #facc15;
+    color: #ef4444;
 }
 
 body{
@@ -29,15 +29,30 @@ body{
     text-align: center;
 }
 
-.frosted-paragraph {
-  background: #f87171; /* Dark Red tint */
+/*.frosted-paragraph {
+  background: #f87171;
   backdrop-filter: blur(12px);
   padding: 20px;
   border-radius: 12px;
   border: 10px solid rgba(211, 211, 211 0.3);
   color: rgb(243, 239, 239);
   box-shadow: 0 0 12px rgba(132, 3, 3, 0.6),
-              0 0 24px rgba(233, 98, 98, 0.4); /* Unique glow effect */
+              0 0 24px rgba(233, 98, 98, 0.4); 
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0;
+  width: 550px;
+  height: auto;
+}*/
+
+.frosted-paragraph {
+  background-color: transparent;
+  color: #facc15;
+  backdrop-filter: blur(2px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #facc15;
+  box-shadow: 0 0 12px #967a08,
+              0 0 24px #967a08;
   transition: all 0.3s ease-in-out;
   margin: 20px 0;
   width: 550px;
@@ -45,8 +60,12 @@ body{
 }
 
 .frosted-paragraph:hover {
-  box-shadow: 0 0 18px #facc15,
-              0 0 36px #ffde59;
+  background: #f87171;
+  border: 2px solid #f87171;
+  color: rgb(243, 239, 239);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 18px #ec7676,
+              0 0 36px #980d0d;
   transform: scale(1.02);
 }
 
@@ -165,9 +184,9 @@ button {
 
 button:hover {
   color: white;
-  background: #ef4444;
-  border: 2px solid #ef4444;
-  box-shadow: 0 0 18px #c75757,
-              0 0 36px #d40707;
+  background: #facc15;
+  border: 2px solid #facc15;
+  box-shadow: 0 0 18px #f4dc7b,
+              0 0 36px #967a08;
   transform: scale(1.02);
 }
