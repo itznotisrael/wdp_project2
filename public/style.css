@@ -155,16 +155,19 @@ img {
 /*BUTTON ALT*/
 
 button {
-  background: #ef4444;
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: #ef4444;
+  border: 2px solid #ef4444;
+  border-radius: 12px;
   padding: 10px 16px;
   transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-  background: #3b82f6;
-  box-shadow: 0 0 18px #6793db,
-              0 0 36px #0649b5;
+  color: white;
+  background: #ef4444;
+  border: 2px solid #ef4444;
+  box-shadow: 0 0 18px #c75757,
+              0 0 36px #d40707;
   transform: scale(1.02);
 }
