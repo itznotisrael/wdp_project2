@@ -1,24 +1,26 @@
-<form class = "form-grid" id="anime-quiz-form">       
+{% include "header.njk" %}
+
+<form class = "form-grid" id="quizForm">       
     <div class="question-block-1 frosted-paragraph">
         <h2 class = "center">When facing conflict, what is your instinct?</h2>
         <label>
-            <input type="radio" name="story" value="action" required>
+            <input type="radio" name="Q1" required>
                 Avoid it and wait for a better moment
         </label>
         <label>
-            <input type="radio" name="story" value="adventure">
+            <input type="radio" name="Q1">
                 Confront it head-on
         </label>
         <label>
-            <input type="radio" name="story" value="horror">
+            <input type="radio" name="Q1">
                 Dark secrets, fear, and creepy twists
         </label>
         <label>
-            <input type="radio" name="story" value="drama">
+            <input type="radio" name="Q1">
                 Outsmart the situation
         </label>
         <label>
-            <input type="radio" name="story" value="drama">
+            <input type="radio" name="Q1">
                 Stay calm and analyze first
         </label>
     </div>
@@ -26,19 +28,19 @@
           <div class="question-block-2 frosted-paragraph">
             <h2 class = "center">What motivates you the most?</h2>
             <label>
-              <input type="radio" name="character" value="action" required>
+              <input type="radio" name="Q2" required>
                 Freedom
             </label>
             <label>
-              <input type="radio" name="character" value="adventure">
+              <input type="radio" name="Q2">
                 Power
             </label>
             <label>
-              <input type="radio" name="character" value="horror">
+              <input type="radio" name="Q2">
                 Justice
             </label>
             <label>
-              <input type="radio" name="character" value="drama">
+              <input type="radio" name="Q2">
                 Connection with others
             </label>
           </div>
@@ -46,19 +48,19 @@
           <div class="question-block-3 frosted-paragraph">
             <h2 class = "center">How do you approach failure?</h2>
             <label>
-              <input type="radio" name="setting" value="action" required>
+              <input type="radio" name="Q3" required>
                 Reflect quietly and improve internally
             </label>
             <label>
-              <input type="radio" name="setting" value="adventure">
+              <input type="radio" name="Q3">
                 Train harder and push limits
             </label>
             <label>
-              <input type="radio" name="setting" value="horror">
+              <input type="radio" name="Q3">
                 Change tactics and try a new method
             </label>
             <label>
-              <input type="radio" name="setting" value="drama">
+              <input type="radio" name="Q3">
                 Rely on others for support
             </label>
           </div>
@@ -66,19 +68,19 @@
           <div class="question-block-4 frosted-paragraph">
             <h2 class = "center">What role do you naturally take in a group?</h2>
             <label>
-              <input type="radio" name="mood" value="action" required>
+              <input type="radio" name="Q4" required>
                 Leader
             </label>
             <label>
-              <input type="radio" name="mood" value="adventure">
+              <input type="radio" name="Q4">
                 Lone wolf
             </label>
             <label>
-              <input type="radio" name="mood" value="horror">
+              <input type="radio" name="Q4">
                 Strategist
             </label>
             <label>
-              <input type="radio" name="mood" value="drama">
+              <input type="radio" name="Q4">
                 Supporter
             </label>
           </div>
@@ -86,39 +88,81 @@
           <div class="question-block-5 frosted-paragraph">
             <h2 class = "center">What is your greatest strength?</h2>
             <label>
-              <input type="radio" name="hook" value="action" required>
+              <input type="radio" name="Q5" required>
                 Discipline
             </label>
             <label>
-              <input type="radio" name="hook" value="adventure">
+              <input type="radio" name="Q5">
                 Intelligence
             </label>
             <label>
-              <input type="radio" name="hook" value="horror">
+              <input type="radio" name="Q5">
                 Charisma
             </label>
             <label>
-              <input type="radio" name="hook" value="drama">
+              <input type="radio" name="Q5">
                 Determination
             </label>
           </div>
+
           <div class="question-block-6 frosted-paragraph">
             <h2 class = "center">What scares you the most?</h2>
             <label>
-              <input type="radio" name="hook" value="action" required>
+              <input type="radio" name="Q6" required>
                 Losing control
             </label>
             <label>
-              <input type="radio" name="hook" value="adventure">
+              <input type="radio" name="Q6">
                 Being powerless
             </label>
             <label>
-              <input type="radio" name="hook" value="horror">
+              <input type="radio" name="Q6">
                 Being misunderstood
             </label>
             <label>
-              <input type="radio" name="hook" value="drama">
+              <input type="radio" name="Q6">
                 Being alone
             </label>
           </div>
 </form>
+
+  <a href="/results">
+    <button>Submit</button>
+  </a>
+
+<script>
+  const form = document.getElementById("quizForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Collect answers
+    const formData = new FormData(form);
+    const answers = [];
+
+    for (let [key, value] of formData.entries()) {
+      answers.push(value);
+    }
+
+    try {
+      const response = await fetch("/api/submit-quiz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ answers })
+      });
+
+      const data = await response.json();
+
+      // Store in localStorage
+      localStorage.setItem("quizResult", JSON.stringify(data));
+
+      // Redirect to results page
+      window.location.href = "/results";
+
+    } catch (error) {
+      console.error("Error submitting quiz:", error);
+    }
+  });
+</script>
