@@ -1,86 +1,17 @@
 <html>
-<body>
-  {% include "header.njk" %}
+  <body>
+    {% include "header.njk" %}
 
-  <main class="results-container">
-    <h1>Your Decision-Making Profile</h1>
+    <main class="results-container">
+      <h1>Your Decision-Making Profile</h1>
 
-    <section id="primaryResult"></section>
-    <section id="secondaryResult"></section>
-    <section id="animeCards"></section>
+      <section id="primaryResult"></section>
+      <section id="secondaryResult"></section>
+      <section id="animeCards"></section>
 
-    <a href="/">Retake Quiz</a>
-  </main>
+      <a href="/">Retake Quiz</a>
+    </main>
 
-  <script>
-    const storedResult = localStorage.getItem("quizResult");
-    const primaryResult = document.getElementById("primaryResult");
-    const secondaryResult = document.getElementById("secondaryResult");
-    const animeCards = document.getElementById("animeCards");
-
-    if (!storedResult) {
-      primaryResult.innerHTML = "<p>No result found. Please take the quiz first.</p>";
-    } else {
-      const data = JSON.parse(storedResult);
-      const result = data.result;
-      const primaryProfile = data.primaryProfile;
-      const secondaryProfile = data.secondaryProfile;
-
-      primaryResult.innerHTML = `
-        <div class="result-card">
-          <h2>${primaryProfile.title}</h2>
-          <p>${primaryProfile.description}</p>
-          <p><strong>Traits:</strong> ${primaryProfile.traits.join(", ")}</p>
-          <p><strong>Score:</strong> ${result.primaryScore}</p>
-        </div>
-      `;
-
-      if (secondaryProfile) {
-        secondaryResult.innerHTML = `
-          <div class="result-card">
-            <h2>Secondary: ${secondaryProfile.title}</h2>
-            <p>${secondaryProfile.description}</p>
-            <p><strong>Traits:</strong> ${secondaryProfile.traits.join(", ")}</p>
-            <p><strong>Score:</strong> ${result.secondaryScore}</p>
-          </div>
-        `;
-      }
-
-      const animeExamples = {
-        strategist: [
-          { name: "L", anime: "Death Note" },
-          { name: "Levi Ackerman", anime: "Attack on Titan" }
-        ],
-        riskTaker: [
-          { name: "Naruto Uzumaki", anime: "Naruto" },
-          { name: "Katsuki Bakugo", anime: "My Hero Academia" }
-        ],
-        protector: [
-          { name: "Tanjiro Kamado", anime: "Demon Slayer" },
-          { name: "All Might", anime: "My Hero Academia" }
-        ],
-        idealist: [
-          { name: "Izuku Midoriya", anime: "My Hero Academia" },
-          { name: "Gon Freecss", anime: "Hunter x Hunter" }
-        ],
-        balanced: [
-          { name: "Kakashi Hatake", anime: "Naruto" },
-          { name: "Gojo Satoru", anime: "Jujutsu Kaisen" }
-        ]
-      };
-
-      const selectedCharacters = animeExamples[result.primaryArchetype] || [];
-
-      animeCards.innerHTML = `
-        <h2>Anime Characters That Match You</h2>
-        ${selectedCharacters.map(character => `
-          <div class="anime-card">
-            <h3>${character.name}</h3>
-            <p>${character.anime}</p>
-          </div>
-        `).join("")}
-      `;
-    }
-  </script>
-</body>
+    <script src="JS/results.js"></script>
+  </body>
 </html>
