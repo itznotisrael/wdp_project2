@@ -27,7 +27,7 @@ body{
 }
 
 .center{
-    text-align: center;
+text-align: center;
 }
 
 .frosted-paragraph {
@@ -152,6 +152,12 @@ img {
   gap: 10px;
 }
 
+.submit-container {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+}
+
 .question {
   display: flex;
   flex-direction: column;
@@ -160,6 +166,7 @@ img {
 /*BUTTON ALT*/
 
 button {
+  width: 100px;
   background-color: transparent;
   color: #ef4444;
   border: 2px solid #ef4444;
