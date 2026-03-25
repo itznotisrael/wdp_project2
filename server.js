@@ -17,7 +17,7 @@ const {
   quizQuestions,
   archetypeProfiles,
   calculateArchetypeResults
-} = require("./public/archetypeQuiz");
+} = require("./public/JS/archetypeQuiz");
 
 // Configure Nunjucks
 nunjucks.configure("views", {
