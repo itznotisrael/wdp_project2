@@ -6,9 +6,18 @@ h1{
   font-size: 40px;
 }
 
+h2{
+  color: #ef4444;
+  font-size: 26px;
+}
+strong{
+  color: #facc15;
+  font-size: 20px;
+}
+
 body{
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b, #ef4444, #3b82f6, #a5a5a5);
+  background: linear-gradient(135deg, #0f172a, #1e293b, #911c1c, #3b82f6, #a5a5a5);
   background-size: 400% 400%;
   animation: gradient 20s ease infinite;
   display: flex;
@@ -727,6 +736,6 @@ button,a:hover {
 }
 
 .anime-card img {
-  width: 100%;
+  width: 75%;
   border-radius: 8px;
 }

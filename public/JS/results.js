@@ -24,20 +24,18 @@ if (!storedResult) {
 
     primaryResult.innerHTML = `
     <div class="result-card">
-        <h2 class = "slide-in-elliptic-right-bck">${primaryProfile.title}</h2>
-        <p class = "text-focus-in">${primaryProfile.description}</p>
-        <p class = "text-focus-in1"><strong>Traits:</strong> ${primaryProfile.traits.join(", ")}</p>
-        <p class = "text-focus-in2"><strong>Score:</strong> ${result.primaryScore}</p>
+      <h2 class = "slide-in-elliptic-right-bck"> Primary: <i>${primaryProfile.title}</i></h2>
+      <h4 class = "text-focus-in">${primaryProfile.description}</h4>
+      <p class = "text-focus-in1"><strong>Traits:</strong> <i>${primaryProfile.traits.join(", ")}</i> &nbsp; <strong>Score:</strong> <i>${result.primaryScore}</i></p>
     </div>
     `;
 
     if (secondaryProfile) {
     secondaryResult.innerHTML = `
         <div class="result-card">
-        <h2 class = "slide-in-elliptic-left-bck">Secondary: ${secondaryProfile.title}</h2>
-        <p class = "text-focus-in3">${secondaryProfile.description}</p>
-        <p class = "text-focus-in4"><strong>Traits:</strong> ${secondaryProfile.traits.join(", ")}</p>
-        <p class = "text-focus-in5"><strong>Score:</strong> ${result.secondaryScore}</p>
+          <h2 class = "slide-in-elliptic-left-bck">Secondary: <i>${secondaryProfile.title}</i></h2>
+          <h4 class = "text-focus-in3">${secondaryProfile.description}</h4>
+          <p class = "text-focus-in4"><strong>Traits:</strong> <i>${secondaryProfile.traits.join(", ")}</i> &nbsp; <strong>Score:</strong> <i>${result.secondaryScore}</i></p>
         </div>
     `;
     }
@@ -85,7 +83,7 @@ const selectedCharacters = animeExamples[result.primaryArchetype] || [];
   );
 
   animeCards.innerHTML = `
-    <h2 class = "tracking-in-expand">Your Anime Match</h2>
+    <h2 class = "tracking-in-expand">Character Match</h2>
 
     <div class="character-grid">
       ${charactersWithImages.map(char => `
