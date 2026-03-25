@@ -3,6 +3,17 @@ const primaryResult = document.getElementById("primaryResult");
 const secondaryResult = document.getElementById("secondaryResult");
 const animeCards = document.getElementById("animeCards");
 
+async function fetchCharacterByName(name) {
+  try {
+    const res = await fetch(`https://api.jikan.moe/v4/characters?q=${name}&limit=1`);
+    const data = await res.json();
+    return data.data[0]; // first match
+  } catch (err) {
+    console.error("Fetch error:", err);
+    return null;
+  }
+}
+
 if (!storedResult) {
     primaryResult.innerHTML = "<p>No result found. Please take the quiz first.</p>";
 } else {
@@ -33,36 +44,92 @@ if (!storedResult) {
 
     const animeExamples = {
     strategist: [
-        { name: "L", anime: "Death Note" },
-        { name: "Levi Ackerman", anime: "Attack on Titan" }
+        { name: "Light Yagami", anime: "Death Note" },
+        { name: "L Lawliet", anime: "Death Note" },
+        { name: "Shikamaru Nara", anime: "Naruto" }
+
     ],
     riskTaker: [
+        { name: "Inosuke Hashibira", anime: "Demon Slayer" },
         { name: "Naruto Uzumaki", anime: "Naruto" },
         { name: "Katsuki Bakugo", anime: "My Hero Academia" }
     ],
     protector: [
-        { name: "Tanjiro Kamado", anime: "Demon Slayer" },
-        { name: "All Might", anime: "My Hero Academia" }
+        { name: "Hinata Hyuga", anime: "Naruto" },    
+        { name: "All Might", anime: "My Hero Academia" },
+        { name: "Tanjiro Kamado", anime: "Demon Slayer" }
     ],
     idealist: [
+        { name: "Edward Elric", anime: "Fullmetal Alchemist" },
         { name: "Izuku Midoriya", anime: "My Hero Academia" },
         { name: "Gon Freecss", anime: "Hunter x Hunter" }
     ],
     balanced: [
+        { name: "Spike Spiegel", anime: "Cowboy Bebop" },
         { name: "Kakashi Hatake", anime: "Naruto" },
         { name: "Gojo Satoru", anime: "Jujutsu Kaisen" }
     ]
     };
 
-    const selectedCharacters = animeExamples[result.primaryArchetype] || [];
+const selectedCharacters = animeExamples[result.primaryArchetype] || [];
 
-    animeCards.innerHTML = `
-    <h2>Anime Characters That Match You</h2>
-    ${selectedCharacters.map(character => `
-        <div class="anime-card">
-            <h3>${character.name}</h3>
-            <p>${character.anime}</p>
+(async () => {
+  const charactersWithImages = await Promise.all(
+    selectedCharacters.map(async (char) => {
+      const apiData = await fetchCharacterByName(char.name);
+      return {
+        ...char,
+        image: apiData?.images?.jpg?.image_url || ""
+      };
+    })
+  );
+
+  animeCards.innerHTML = `
+    <h2 class = "tracking-in-expand">Your Anime Match</h2>
+
+    <div class="character-grid">
+      ${charactersWithImages.map(char => `
+        <div class="anime-card puff-in-top">
+          <img src="${char.image}" alt="${char.name}">
+          <h3>${char.name}</h3>
+          <p>${char.anime}</p>
         </div>
-    `).join("")}
+      `).join("")}
+    </div>
+  `;
+    /* SECONDARY FUNCTIONS: EXPERIMENTAL(FAILED DUE TO RANGE LIMIT IN JIKAN API) */
+    /*function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    if (secondaryProfile) {
+        const secondaryCharactersWithImages = [];
+
+        for (const char of secondaryCharacters) {
+        const apiData = await fetchCharacterByName(char.name);
+
+        secondaryCharactersWithImages.push({
+            ...char,
+            image: apiData?.images?.jpg?.image_url || "https://via.placeholder.com/150"
+        });
+
+        await delay(400); // prevents rate limit
+        }
+
+    animeCards.innerHTML += `
+        <h2 class="text-focus-in2">Your Dual Nature</h2>
+
+        <div class="character-grid">
+        ${secondaryCharactersWithImages.map(char => `
+            <div class="anime-card">
+            <img src="${char.image}" alt="${char.name}">
+            <h3>${char.name}</h3>
+            <p>${char.anime}</p>
+            </div>
+        `).join("")}
+        </div>
     `;
+    }*/
+
+})();
 }

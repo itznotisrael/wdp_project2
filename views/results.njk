@@ -1,15 +1,17 @@
 <html>
+  {% include "header.njk" %}
   <body>
-    {% include "header.njk" %}
 
     <main class="results-container">
-      <h1>Your Decision-Making Profile</h1>
+      <h1 class = "blur-out-expand-fwd1">Primary Profile</h1>
 
       <section id="primaryResult"></section>
       <section id="secondaryResult"></section>
       <section id="animeCards"></section>
-
-      <a href="/">Retake Quiz</a>
+      <div class = "submit-container">
+        <a href="/">Retake Quiz</a>
+      </div>
+      
     </main>
 
     <script src="JS/results.js"></script>
